@@ -1,0 +1,52 @@
+name:                bk22lsmv
+version:             0.1.0.0
+github:              "andymac-2/bk22lsmv"
+license:             BSD3
+author:              "Andrew pritchard"
+maintainer:          "andrewjpritchard@gmail.com"
+copyright:           "2018 Andrew Pritchard"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/andymac-2/bk22lsmv#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  bk22lsmv-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bytestring
+    - zip-archive
+    - bk22lsmv
+    - time
+    
+
+tests:
+  bk22lsmv-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - bk22lsmv
